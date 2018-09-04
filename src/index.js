@@ -21,7 +21,9 @@ export function getLinked(pkg = require('../package.json')) {
 }
 
 export function getLinkedPaths(pkg) {
-  return _.map(getLinked(pkg), getPath);
+  return _.map(getLinked(pkg), dependency => {
+    return fs.realpathSync(getPath(dependency));
+  });
 }
 
 export default { isLinked, getLinked, getLinkedPaths };
