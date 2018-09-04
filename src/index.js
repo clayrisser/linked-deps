@@ -17,9 +17,11 @@ export function getLinked(pkg = require('../package.json')) {
     _.keys(pkg.devDependencies || {}),
     _.keys(pkg.dependencies || {})
   );
-  _.filter(dependencies, dependency => isLinked(dependency));
+  return _.filter(dependencies, dependency => isLinked(dependency));
 }
 
-export function getLinkedPaths(pkg = {}) {
-  return _.each(getLinked(pkg), getPath);
+export function getLinkedPaths(pkg) {
+  return _.map(getLinked(pkg), getPath);
 }
+
+export default { isLinked, getLinked, getLinkedPaths };
