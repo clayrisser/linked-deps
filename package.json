@@ -1,0 +1,55 @@
+{
+  "name": "linked-deps",
+  "version": "0.0.1",
+  "description": "manage symlinked dependencies",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "npm run test && babel src -d lib",
+    "clean": "rimraf lib",
+    "format": "prettier --write ./src/**/*.js",
+    "lint": "npm run format && eslint ./",
+    "lint:fix": "npm run format && eslint --fix ./",
+    "prepublish": "npm run clean && npm run build",
+    "test": "npm run lint"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codejamninja/linked-deps.git"
+  },
+  "keywords": [
+    "babel",
+    "preset",
+    "es6",
+    "babel7",
+    "plugin",
+    "proposed"
+  ],
+  "author": "Jam Risser <jam@codejam.ninja> (https://codejam.ninja)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codejamninja/linked-deps/issues"
+  },
+  "homepage": "https://github.com/codejamninja/linked-deps#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "babel-preset-everything": "^0.1.2",
+    "eslint": "^5.5.0",
+    "eslint-config-jam": "^0.1.1",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1",
+    "prettier": "^1.14.2",
+    "rimraf": "^2.6.2"
+  },
+  "dependencies": {
+    "fs-extra": "^7.0.0",
+    "lodash": "^4.17.10"
+  },
+  "eslintIgnore": [
+    "lib"
+  ]
+}
