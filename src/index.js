@@ -12,7 +12,10 @@ export function isLinked(dependency) {
   return stats.isSymbolicLink();
 }
 
-export function getLinked(pkg = require('../package.json')) {
+export function getLinked(
+  pkgPath = path.resovle(process.cwd(), 'package.json')
+) {
+  const pkg = require(pkgPath);
   const dependencies = _.concat(
     _.keys(pkg.devDependencies || {}),
     _.keys(pkg.dependencies || {})
@@ -20,8 +23,8 @@ export function getLinked(pkg = require('../package.json')) {
   return _.filter(dependencies, dependency => isLinked(dependency));
 }
 
-export function getLinkedPaths(pkg) {
-  return _.map(getLinked(pkg), dependency => {
+export function getLinkedPaths(pkgPath) {
+  return _.map(getLinked(pkgPath), dependency => {
     return fs.realpathSync(getPath(dependency));
   });
 }
