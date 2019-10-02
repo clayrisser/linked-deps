@@ -13,7 +13,7 @@ export function isLinked(dependency) {
 }
 
 export function getLinked(
-  pkgPath = path.resovle(process.cwd(), 'package.json')
+  pkgPath = path.resolve(process.cwd(), 'package.json')
 ) {
   const pkg = require(pkgPath);
   const dependencies = _.concat(
