@@ -4,6 +4,8 @@
 
 > manage symlinked dependencies
 
+![](assets/linked-deps.png)
+
 Please ★ this repo if you found it useful ★ ★ ★
 
 
